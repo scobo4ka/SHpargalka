@@ -3,17 +3,52 @@
     <div class="jumbotron jumbotron-fluid mb-0 shadow h-100">
 
         <div class="container shadow p-4">
-            <span class="lead">Перевод систем счисления</span> 
-            <div class="mt-2">
-                <input type="number" id="number" class="form-control mb-1" placeholder="Число">
-                <input type="number" id="cc" class="form-control mb-1" placeholder="Перевести из">
-                <input type="number" id="to_cc" class="form-control mb-1" placeholder="Перевести в">
-                <input type="text" readonly id="answer" class="form-control mb-2" value="" placeholder="Полученное число">
-                <button type="button" id="send" class="btn btn-light w-100">Перевести</button>
+            <span class="lead">Кодировка</span> 
+            <div class="mt-3">
+                <small>Выберите способ кодировки</small>
+                <div class="input-group mb-2 mt-1">
+                    <select class="custom-select" id="way_select">
+                        <option selected value="md2">md2</option>
+                        <option value="md4">md4</option>
+                        <option value="md5">md5</option>
+                        <option value="sha1">sha1</option>
+                        <option value="sha256">sha256</option>
+                        <option value="sha384">sha384</option>
+                        <option value="sha512">sha512</option>
+                        <option value="ripemd128">ripemd128</option>
+                        <option value="ripemd160">ripemd160</option>
+                        <option value="ripemd256">ripemd256</option>
+                        <option value="ripemd320">ripemd320</option>
+                        <option value="whirlpool">whirlpool</option>
+                        <option value="snefru">snefru</option>
+                        <option value="gost">gost</option>
+                        <option value="adler32">adler32</option>
+                        <option value="crc32b">crc32b</option>
+                        <option value="base64">base64</option>
+                    </select>
+                </div>
+                <input type="text" id="str_encode" class="form-control mb-2" placeholder="Строка, которую надо закодировать">
+                <input type="text" readonly id="answer_encode" class="form-control mb-2" value="" placeholder="Полученный ответ">
+                <button type="button" id="send_encode" class="btn w-100 btn-light mt-2">Закодировать</button>
+            </div>
+        </div>
+
+        <div class="container shadow p-4 mt-4">
+            <span class="lead">Раскодировка</span> 
+            <div class="mt-3">
+                <small>Выберите способ раскодировки</small>
+                <div class="input-group mb-2 mt-1">
+                    <select class="custom-select" id="way_select">
+                        <option selected value="base64">base64</option>
+                    </select>
+                </div>
+                <input type="text" id="str_decode" class="form-control mb-2" placeholder="Строка, которую надо раскодировать">
+                <input type="text" readonly id="answer_decode" class="form-control mb-2" value="" placeholder="Полученный ответ">
+                <button type="button" id="send_decode" class="btn w-100 btn-light mt-2">Раскодировать</button>
             </div>
         </div>
 
     </div>
 
-    <script src="/pages/transfer/ajax/main.js"></script>
+    <script src="/pages/hash/ajax/main.js"></script>
 </body>

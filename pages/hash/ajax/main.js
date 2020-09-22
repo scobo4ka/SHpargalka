@@ -1,9 +1,18 @@
 $(document).ready( function() { 
 
-    $("#send").click( function(){
-        $.post('/pages/transfer/ajax/script.php', {number: $("#number").val(), cc: $("#cc").val(), to_cc: $("#to_cc").val()}, function(data){
+    $("#send_encode").click( function(){
+        let way_encode = way_select.value;
+        $.post('/pages/hash/ajax/script_encode.php', {str: $("#str_encode").val(), way_hash: way_encode}, function(data){
             //location.reload();
-            answer.value = data;
+            answer_encode.value = data;
+        });
+    });
+
+    $("#send_decode").click( function(){
+        let way_decode = way_select.value;
+        $.post('/pages/hash/ajax/script_decode.php', {str: $("#str_decode").val(), way_hash: way_decode}, function(data){
+            //location.reload();
+            answer_decode.value = data;
         });
     });
 
