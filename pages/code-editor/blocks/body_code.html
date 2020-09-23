@@ -1,0 +1,102 @@
+<body>
+    <link rel="stylesheet" href="/pages/code-editor/lib/codemirror.css">
+
+    <style>
+        .CodeMirror {
+            font-family: monospace;
+            height: 100vh;
+        }
+    </style>
+
+    <div id="toasts">
+        
+    </div>
+    
+
+    <div class="jumbotron bg-dark jumbotron-fluid text-white mb-0 shadow p-3 px-2">
+        <div class="container-fluid">
+            <h5>Редактор кода</h5>
+            
+            <div style="width: 215px;" class="p-2 mt-2 mb-2 text-dark rounded bg-light shadow">
+                <div>
+                    <small>Режим работы</small> <br>
+                    <select id="code_switch" style="width: 200px;" class="custom-select" id="inputGroupSelect01">
+                        <option selected value="c++">C++</option>
+                        <option value="Python">Python</option>
+                        <option value="Pascal">Pascal</option>
+                        <option value="CSS">CSS</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="HTML">HTML</option>
+                        <option value="PHP">PHP</option>
+                    </select>
+                </div>
+                <button id="send_switch" style="width: 200px;" type="button" class="btn btn-dark mt-2">Применить</button>
+            </div>
+
+            <button type="button" id="code-share" class="btn btn-light"> <i class="fas fa-share-square"></i> Share</button>
+            <button type="button" id="code_copy" class="btn btn-light"> <i class="fas fa-copy"></i> Copy</button>
+            
+        </div>
+    </div>
+
+    <div class="h-100">
+        <textarea id="code_editor" style="position: absolute; bottom: -1em; padding: 0px; width: 1px; height: 1em; outline: currentcolor none medium;" autocorrect="off" autocapitalize="off" spellcheck="false" tabindex="0" wrap="off"></textarea>
+    </div>
+
+    <script src="/pages/code-editor/ajax/main.js"></script>
+
+    <script src="/pages/code-editor/lib/codemirror.js"></script>
+    <script src="/pages/code-editor/lib/formatting.js"></script>
+    <script src="/pages/code-editor/addon/edit/matchbrackets.js"></script>
+
+    <script src="/pages/code-editor/mode/php/php.js"></script>
+    <script src="/pages/code-editor/mode/css/css.js"></script>
+    <script src="/pages/code-editor/mode/clike/clike.js"></script>
+    <script src="/pages/code-editor/mode/xml/xml.js"></script>
+    <script src="/pages/code-editor/mode/javascript/javascript.js"></script>
+    <script src="/pages/code-editor/mode/pascal/pascal.js"></script>
+    <script src="/pages/code-editor/mode/python/python.js"></script>
+
+    
+
+    <script>
+
+        
+        var editor = CodeMirror.fromTextArea(document.getElementById("code_editor"), {
+            lineNumbers: true,
+            matchBrackets: true,
+            mode: "javascript"
+        });
+
+        $('#code_copy').click( function() {
+            navigator.clipboard.writeText(editor.getValue());
+        });
+
+        $("#send_switch").click( function() {
+            if(code_switch.value == "c++") {
+                editor.setOption("mode", "text/x-c++src" );
+
+            } else if(code_switch.value == "Python") {
+                editor.setOption("mode", "python" );
+
+            } else if(code_switch.value == "Pascal") {
+                editor.setOption("mode", "text/x-pascal" );
+
+            } else if(code_switch.value == "CSS") {
+                editor.setOption("mode", "text/css" );
+
+            } else if(code_switch.value == "JavaScript") {
+                editor.setOption("mode", "text/javascript" );
+
+            } else if(code_switch.value == "HTML") {
+                editor.setOption("mode", "text/html" );
+
+            } else if(code_switch.value == "PHP") {
+                editor.setOption("mode", "php" );
+
+            }
+            
+        });
+  
+    </script>
+</body>

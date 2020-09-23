@@ -21,7 +21,15 @@
 
         require 'pages/hash/index.php';
 
-    }
+    } else if( $_GET['mode'] == 'code-editor' ) {
+
+        require 'pages/code-editor/index.php';
+
+    } else {
+
+        require 'pages/primary/index.php';
+
+    } 
 
     require 'blocks/scripts.js';
 
