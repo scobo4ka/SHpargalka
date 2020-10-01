@@ -34,4 +34,3 @@
     require 'blocks/scripts.js';
 
 ?>
-123
