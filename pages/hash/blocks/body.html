@@ -1,13 +1,13 @@
 <body>
-    
+
     <div class="jumbotron jumbotron-fluid mb-0 shadow h-100">
 
         <div class="container shadow p-4">
-            <span class="lead">Кодировка</span> 
+            <span class="lead">Кодировка</span>
             <div class="mt-3">
                 <small>Выберите способ кодировки</small>
                 <div class="input-group mb-2 mt-1">
-                    <select class="custom-select" id="way_select">
+                    <select class="custom-select" id="encode_way_select">
                         <option selected value="md2">md2</option>
                         <option value="md4">md4</option>
                         <option value="md5">md5</option>
@@ -34,12 +34,13 @@
         </div>
 
         <div class="container shadow p-4 mt-4">
-            <span class="lead">Раскодировка</span> 
+            <span class="lead">Раскодировка</span>
             <div class="mt-3">
                 <small>Выберите способ раскодировки</small>
                 <div class="input-group mb-2 mt-1">
-                    <select class="custom-select" id="way_select">
+                    <select class="custom-select" id="decode_way_select">
                         <option selected value="base64">base64</option>
+                        <option value="asсii">askii</option>
                     </select>
                 </div>
                 <input type="text" id="str_decode" class="form-control mb-2" placeholder="Строка, которую надо раскодировать">
